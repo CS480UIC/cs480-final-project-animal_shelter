@@ -8,3 +8,7 @@
 7. Each shelter can contain multiple animals, but each animal can belong to one shelter.
 8. Each animal can be adopted by at-most one person, but one person can adopt many animals.
 9. Each vet clinic can give treatment to multiple animals, and each animal can be treated from multiple vetenerarians.
+
+Relationships
+1. Cascade(on delete and on update) relationship between animal and shelter_animal
+2. Cascade(on delete and on update) relationship between animal and medical
