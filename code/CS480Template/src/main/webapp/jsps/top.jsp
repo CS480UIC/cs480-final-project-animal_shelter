@@ -31,7 +31,8 @@
   </head>
   
   <body>
-<h1 style="text-align: center;">Ameesha Saxena</h1>
+<h1 style="text-align: center;">Ameesha Saxena</h1> 
+<h3 style="text-align: center;">CS 480 Project</h3> 
 <div style="font-size: 10pt;">
 	<c:choose>
 		<c:when test="${empty sessionScope.session_user }">
