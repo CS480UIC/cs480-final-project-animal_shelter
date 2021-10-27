@@ -58,7 +58,7 @@
 			<a href="<c:url value='/jsps/shelter_animal/shelter_animal_update.jsp'/>" target="_parent">Update shelter_animal</a> |&nbsp;
 			<a href="<c:url value='/jsps/shelter_animal/shelter_animal_delete.jsp'/>" target="_parent">Delete shelter_animal</a> |&nbsp; <br/>
 			
-			<a href="<c:url value='/jsps/shelter_finance/shelter_financel_create.jsp'/>" target="_parent">Create shelter_finance</a> |&nbsp; 
+			<a href="<c:url value='/jsps/shelter_finance/shelter_finance_create.jsp'/>" target="_parent">Create shelter_finance</a> |&nbsp; 
 			<a href="<c:url value='/jsps/shelter_finance/shelter_finance_read.jsp'/>" target="_parent">Read shelter_finance</a> |&nbsp; 
 			<a href="<c:url value='/jsps/shelter_finance/shelter_finance_update.jsp'/>" target="_parent">Update shelter_finance</a> |&nbsp;
 			<a href="<c:url value='/jsps/shelter_finance/shelter_finance_delete.jsp'/>" target="_parent">Delete shelter_finance</a> |&nbsp; <br/>

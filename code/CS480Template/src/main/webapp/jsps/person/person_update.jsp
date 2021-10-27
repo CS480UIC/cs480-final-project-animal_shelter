@@ -27,7 +27,7 @@
 	Update email   :<input type="text" name="username" value="${form.username }"/>
 	<span style="color: red; font-weight: 900">${errors.username }</span>
 	<br/>
-	<input type="submit" value="Update Entity1"/>
+	<input type="submit" value="Update person"/>
 </form>
   </body>
 </html>
