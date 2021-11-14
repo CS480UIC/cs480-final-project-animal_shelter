@@ -1,0 +1,6 @@
+Timestamp,animal_id,clinic_id,vet_id,date_of_visit,diagnosis,prescription,total_due
+10/19/2021 15:28:44,56,234,36,9/23/2021,perfect health,multivitamins,80
+10/19/2021 15:29:33,76,234,37,8/4/2020,upset stomach,stomach medications,130
+10/19/2021 15:31:12,34,234,5,10/9/2021,worms,deworming,80
+10/19/2021 15:32:26,37,560,36,9/1/2021,respiratory infections,medicine A,150
+10/19/2021 15:33:04,89,234,8,7/3/2021,perfect health,none,80

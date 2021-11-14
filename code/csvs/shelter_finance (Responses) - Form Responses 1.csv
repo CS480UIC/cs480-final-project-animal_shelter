@@ -1,0 +1,6 @@
+Timestamp,transaction_id,transaction_value,transaction_type,donor_name,person_id,date
+,1295674,100,cash,,,08/11/2020
+,1295675,350,echeck,lily bloom,34,08/21/2020
+,1295676,1000,"supplies, echeck",rhys cohen,,11/25/2020
+,1295677,250,bank-transfer,kell marsh,57,11/30/2020
+,1295678,1250,echeck,,,12/12/2020

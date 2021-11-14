@@ -1,0 +1,6 @@
+Timestamp,id,first_name,last_name,dob,email,phone,street_address,zip_code,housing_status,kids,adoption_history
+10/19/2021 15:54:40,34,lily,bloom,12/13/1989,lbloom26@gmail.com,8904567892,"124 example street, state",67850,rent,1,never adopted before
+10/19/2021 15:56:02,56,Ryle,Kincaid,6/12/1985,rkincaid@gmail.com,7804567865,"124 blue course drive, state",79600,owns house,1,1 cat
+10/19/2021 15:57:03,3,Atlas,Corrigan,3/4/1987,chefcorrigan@gmail.com,3126943416,"768 abc lane, state b",78096,owns house,0,never adopted
+10/19/2021 15:58:03,57,kell,marsh,9/18/1972,kmaresh34@gmail.com,3126943416,"abc lane, 1234",67086,rents,3,"1 dog, 1 cat"
+10/19/2021 15:59:41,90,aaron,blackford,1/3/2000,ablackford@yahoo.com,9582830396,"304, blockader lane",70890,owns,2,never adopted
