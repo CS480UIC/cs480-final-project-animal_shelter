@@ -1,6 +1,8 @@
 package animal.service;
 
 
+import java.util.List;
+
 import animal.dao.animalDao;
 import animal.domain.animal;
 
@@ -42,6 +44,11 @@ public class animalService {
 		
 		if(password!=null && !password.equals(form.getId()))
 			throw new animalException(" The password is not right");
+		
+	}
+	
+	public List<Object> findAnimals() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		return entity1Dao.findAnimals();
 		
 	}
 }

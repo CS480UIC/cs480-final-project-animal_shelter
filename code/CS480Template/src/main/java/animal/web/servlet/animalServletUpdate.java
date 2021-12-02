@@ -79,13 +79,13 @@ public class animalServletUpdate extends HttpServlet {
 //			form.setPassword(info.get(2));
 //			form.setEmail(info.get(3));
 //			form.setUsername(request.getParameter("username"));
-			form.setId(info.get(0));
-			form.setName(info.get(1));
-			form.setSpecies(info.get(2));	
-			form.setAge(Integer.parseInt(info.get(3)));
-			form.setPhysical_description(info.get(4));
-			form.setMicrochip_id(info.get(5));
-			form.setAdoption_history(info.get(6));
+			form.setId(info.get(1));
+			form.setName(info.get(2));
+			form.setSpecies(info.get(3));	
+			form.setAge(Integer.parseInt(info.get(4)));
+			form.setPhysical_description(info.get(5));
+			form.setMicrochip_id(info.get(6));
+			form.setAdoption_history(info.get(7));
 
 			try {
 				entity1dao.update(form);

@@ -150,6 +150,21 @@
     <servlet-name>findAll</servlet-name>
     <url-pattern>/findAll</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>
+    <description></description>
+    <display-name>animalView</display-name>
+    <servlet-name>animalView</servlet-name>
+    
+    <servlet-class>animal.web.servlet.animalView</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>animalView</servlet-name>
+    <url-pattern>/animalView</url-pattern>
+  </servlet-mapping>
+  
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>login.jsp</welcome-file>

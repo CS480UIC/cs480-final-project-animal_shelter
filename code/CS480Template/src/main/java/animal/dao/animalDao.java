@@ -5,14 +5,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-
-
+import java.util.ArrayList;
+import java.util.List;
 
 //import java.util.ArrayList;
 //import java.util.List;
 
 import animal.domain.animal;
+import animal.domain.animalView;
+import user.domain.User;
 
 /**
  * DDL functions performed in database
@@ -76,7 +77,7 @@ public class animalDao {
 		    preparestatement.setString(1,form.getId());
 		    preparestatement.setString(2,form.getName());
 		    preparestatement.setString(3,form.getSpecies());
-		    preparestatement.setInt(4,form.getAge());
+		    preparestatement.setString(4,String.valueOf(form.getAge()));
 		    preparestatement.setString(5,form.getPhysical_description());
 		    preparestatement.setString(6,form.getMicrochip_id());
 		    preparestatement.setString(7,form.getAdoption_history());
@@ -99,7 +100,7 @@ public class animalDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/animal_shelter", MySQL_user, MySQL_password);
 			
-			String sql = "UPDATE animal SET name = ?, species = ?, age = ?, physical_description = ?, microchip_id = ?. adoption_history = ? where id = ?;";
+			String sql = "UPDATE animal SET name = ?, species = ?, age = ?, physical_description = ?, microchip_id = ?, adoption_history = ? where id = ?;";
 			PreparedStatement preparestatement = connect.prepareStatement(sql); 
 //		    preparestatement.setString(1,form.getPassword());
 //			preparestatement.setString(2,form.getEmail());
@@ -107,7 +108,7 @@ public class animalDao {
 		    
 		    preparestatement.setString(1,form.getName());
 		    preparestatement.setString(2,form.getSpecies());
-		    preparestatement.setInt(3,form.getAge());
+		    preparestatement.setString(3,String.valueOf(form.getAge()));
 		    preparestatement.setString(4,form.getPhysical_description());
 		    preparestatement.setString(5,form.getMicrochip_id());
 		    preparestatement.setString(6,form.getAdoption_history());
@@ -139,5 +140,28 @@ public class animalDao {
 		} catch(SQLException e) {
 			throw new RuntimeException(e);
 		}
+	}
+	
+	public List<Object> findAnimals() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		List<Object> list = new ArrayList<>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/animal_shelter", MySQL_user, MySQL_password);
+			String sql = "select * from animalView";
+			PreparedStatement preparestatement = connect.prepareStatement(sql); 
+			ResultSet resultSet = preparestatement.executeQuery();			
+			while(resultSet.next()){
+				animalView user = new animalView();
+				user.setName(resultSet.getString("name"));
+//	    		user.setPassword(resultSet.getString("password"));
+//	    		user.setEmail(resultSet.getString("email"));
+	    		list.add(user);
+			 }
+			connect.close();
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return list;
+		
 	}
 }
