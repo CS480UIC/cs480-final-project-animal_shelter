@@ -41,7 +41,7 @@ public class animalServletRead extends HttpServlet {
 		animalDao entity1Dao = new animalDao();
 		
 		try {
-			entity1 = entity1Dao.findById(request.getParameter("username"));
+			entity1 = entity1Dao.findById(request.getParameter("id"));
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (InstantiationException e1) {
@@ -50,14 +50,14 @@ public class animalServletRead extends HttpServlet {
 			e1.printStackTrace();
 		}
 		
-		if(entity1.getUsername()!=null){
+		if(entity1.getId()!=null){
 					System.out.println(entity1);
-					request.setAttribute("entity1", entity1);
-					request.getRequestDispatcher("/jsps/entity1/entity1_read_output.jsp").forward(request, response);
+					request.setAttribute("animal", entity1);
+					request.getRequestDispatcher("/jsps/animal/animal_read_output.jsp").forward(request, response);
 			}
 			else{
-			request.setAttribute("msg", "Entity not found");
-			request.getRequestDispatcher("/jsps/entity1/entity1_read_output.jsp").forward(request, response);
+			request.setAttribute("msg", "animal not found");
+			request.getRequestDispatcher("/jsps/animal/animal_read_output.jsp").forward(request, response);
 		}
 	}
 }

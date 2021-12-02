@@ -40,7 +40,8 @@ CREATE TABLE `animal` (
   `adoption_history` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
-  UNIQUE KEY `microchip_id` (`microchip_id`)
+  UNIQUE KEY `microchip_id` (`microchip_id`),
+  KEY `microchip` (`microchip_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -71,6 +72,7 @@ CREATE TABLE `medical` (
   `total_due` int NOT NULL,
   PRIMARY KEY (`animal_id`,`clinic_id`,`vet_id`),
   UNIQUE KEY `animal_id` (`animal_id`),
+  KEY `vet_office` (`clinic_id`),
   CONSTRAINT `medical_ibfk_1` FOREIGN KEY (`animal_id`) REFERENCES `animal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -163,6 +165,7 @@ CREATE TABLE `shelter_finance` (
   PRIMARY KEY (`transaction_id`),
   UNIQUE KEY `transaction_id` (`transaction_id`),
   KEY `person_id` (`person_id`),
+  KEY `dateTransact` (`transaction_date`),
   CONSTRAINT `shelter_finance_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `person` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -230,6 +233,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES ('ameesha','123456','asaxen21@uic.edu');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -242,4 +246,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-11 13:38:42
+-- Dump completed on 2021-11-12 12:12:29

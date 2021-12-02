@@ -37,11 +37,11 @@ public class animalServletDelete extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String method = request.getParameter("method");
 		animalDao entity1Dao = new animalDao();
-		animal entity1 = null;
+		animal ani = null;
 		if(method.equals("search"))
 		{
 			try {
-				entity1 = entity1Dao.findById(request.getParameter("username"));
+				ani = entity1Dao.findById(request.getParameter("id"));
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (InstantiationException e1) {
@@ -50,20 +50,20 @@ public class animalServletDelete extends HttpServlet {
 				e1.printStackTrace();
 			}
 		
-			if(entity1.getUsername()!=null){
-						System.out.println(entity1);
-						request.setAttribute("entity1", entity1);
-						request.getRequestDispatcher("/jsps/entity1/entity1_delete_output.jsp").forward(request, response);			
+			if(ani.getId()!=null){
+						System.out.println(ani);
+						request.setAttribute("animal", ani);
+						request.getRequestDispatcher("/jsps/animal/animal_delete_output.jsp").forward(request, response);			
 				}
 				else{
-				request.setAttribute("msg", "Entity not found");
-				request.getRequestDispatcher("/jsps/entity1/entity1_read_output.jsp").forward(request, response);
+				request.setAttribute("msg", "animal not found");
+				request.getRequestDispatcher("/jsps/animal/animal_read_output.jsp").forward(request, response);
 			}
 		}
 		else if(method.equals("delete"))
 		{	
 			try {
-				entity1Dao.delete(request.getParameter("username"));
+				entity1Dao.delete(request.getParameter("id"));
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (InstantiationException e1) {
@@ -71,8 +71,8 @@ public class animalServletDelete extends HttpServlet {
 			} catch (IllegalAccessException e1) {
 				e1.printStackTrace();
 			}
-			request.setAttribute("msg", "Entity Deleted");
-			request.getRequestDispatcher("/jsps/entity1/entity1_read_output.jsp").forward(request, response);
+			request.setAttribute("msg", "animal Deleted");
+			request.getRequestDispatcher("/jsps/animal/animal_read_output.jsp").forward(request, response);
 		}
 	}
 }

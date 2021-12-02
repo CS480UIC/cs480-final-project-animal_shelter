@@ -6,7 +6,7 @@
 <html>
   <head>
     
-    <title>Read Entity Output</title>
+    <title>Read animal Output</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -21,15 +21,24 @@
   </head>
   
   <body>
-  <h1>Read Entity Output</h1>
+  <h1>Read animal Output</h1>
 <p style="color: red; font-weight: 900">${msg }</p>
 <form>
-	User    :<input type="text" name="username" value="${entity1.username }" disabled/>
+	id    :<input type="text" name="id" value="${animal.id }" disabled/>
 	<br/>
-	Password：<input type="text" name="password" value="${entity1.password }" disabled/>
+	name：<input type="text" name="name" value="${animal.name }" disabled/>
 	<br/>
-	Email	：<input type="text" name="email" value="${entity1.email }" disabled/>
+	species	：<input type="text" name="species" value="${animal.species }" disabled/>
 	<br/>
+	age	：<input type="text" name="age" value="${animal.age }" disabled/>
+	<br/>
+	physical_description	：<input type="text" name="physical_description" value="${animal.physical_description }" disabled/>
+	<br/>
+	microchip_id	：<input type="text" name="microchip_id" value="${animal.microchip_id }" disabled/>
+	<br/>
+	adoption_history	：<input type="text" name="adoption_history" value="${animal.adoption_history }" disabled/>
+	<br/>
+	
 </form>
 
 <button onclick="window.location.href='<c:url value='/jsps/main.jsp'/>'">Continue</button>

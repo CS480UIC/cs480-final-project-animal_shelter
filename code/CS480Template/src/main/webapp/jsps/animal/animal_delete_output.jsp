@@ -23,17 +23,25 @@
   <body>
   <h1>Delete animal</h1>
 <p style="color: red; font-weight: 900">${msg }</p>
-<form action="<c:url value='/Entity1ServletDelete'/>" method="post">
+<form action="<c:url value='/animalServletDelete'/>" method="post">
 	<input type="hidden" name="method" value="delete"/>
-		<input type="hidden" name="username" value="${entity1.username }"/>
-	name    :<input type="text" name="username" value="${entity1.username }" disabled/>
+	<input type="hidden" name="id" value="${animal.id }"/>
+	id    :<input type="text" name="id" value="${animal.id }" disabled/>
+	<br/>
+	name：<input type="text" name="name" value="${animal.name }" disabled/>
+	<br/>
+	species	：<input type="text" name="species" value="${animal.species }" disabled/>
+	<br/>
+	age	：<input type="text" name="age" value="${animal.age }" disabled/>
+	<br/>
+	physical_description	：<input type="text" name="physical_description" value="${animal.physical_description }" disabled/>
+	<br/>
+	microchip_id	：<input type="text" name="microchip_id" value="${animal.microchip_id }" disabled/>
+	<br/>
+	adoption_history	：<input type="text" name="adoption_history" value="${animal.adoption_history }" disabled/>
 	<br/>
 	
-	Password：<input type="text" name="password" value="${entity1.password }" disabled/>
-	<br/>
-	Email	：<input type="text" name="email" value="${entity1.email }" disabled/>
-	<br/>
-	<input type="submit" value="Delete Entity1"/>
+	<input type="submit" value="Delete animal"/>
 </form>
 
 </body>

@@ -95,6 +95,29 @@
   
   <servlet>
     <description></description>
+    <display-name>animalServletRead</display-name>
+    <servlet-name>animalServletRead</servlet-name>
+    <servlet-class>animal.web.servlet.animalServletRead</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>animalServletRead</servlet-name>
+    <url-pattern>/animalServletRead</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>animalServletDelete</display-name>
+    <servlet-name>animalServletDelete</servlet-name>
+    <servlet-class>animal.web.servlet.animalServletDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>animalServletDelete</servlet-name>
+    <url-pattern>/animalServletDelete</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <description></description>
     <display-name>InitializeDB</display-name>
     <servlet-name>InitializeDB</servlet-name>
     <servlet-class>init.web.servlet.InitializeServlet</servlet-class>
