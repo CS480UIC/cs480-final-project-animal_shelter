@@ -25,7 +25,7 @@
     <h1>List of Queries</h1>
     <br>
     <a href="<c:url value='/findAll'/>" target="body">Please list all the user in the table</a>&nbsp;&nbsp; <br/>
-    <a href="<c:url value='animalView'/>" target="body">Please list all animals in the table animal</a>&nbsp;&nbsp; <br/>
+    <a href="<c:url value='/animalView'/>" target="body">Please list all animals in the table animal</a>&nbsp;&nbsp; <br/>
     <a href="<c:url value='/findAll'/>" target="body">Please list all the healthy animals in the table</a>&nbsp;&nbsp;<br/>
     <a href="<c:url value='/findAll'/>" target="body">Please list the maximum donation in the table</a>&nbsp;&nbsp;
  

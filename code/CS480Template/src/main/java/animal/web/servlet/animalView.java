@@ -44,7 +44,7 @@ public class animalView extends HttpServlet {
 //		}
 		
 		
-		request.getRequestDispatcher("/jsps/user/animalView.jsp").forward(request, response);
+		request.getRequestDispatcher("/jsps/animal/animalView.jsp").forward(request, response);
 	}
 
 }
