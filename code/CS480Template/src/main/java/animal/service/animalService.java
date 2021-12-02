@@ -29,7 +29,7 @@ public class animalService {
 	 * Login function
 	 * @param form
 	 * @return
-	 * @throws UserException 
+	 * @throws InitException 
 	 * @throws ClassNotFoundException 
 	 * @throws IllegalAccessException 
 	 * @throws InstantiationException 

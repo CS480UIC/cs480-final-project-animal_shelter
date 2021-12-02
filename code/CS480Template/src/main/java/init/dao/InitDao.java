@@ -16,7 +16,7 @@ import user.domain.User;
 /**
  * DDL functions performed in database
  */
-public class UserDao {
+public class InitDao {
 	
 	/**
 	 * user name to connect to the database 
@@ -80,6 +80,7 @@ public class UserDao {
 			throw new RuntimeException(e);
 		}
 	}
+
 	
 	
 	public List<Object> findall() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
@@ -103,6 +104,20 @@ public class UserDao {
 		}
 		return list;
 		
+	}
+	
+	public void initialize() throws ClassNotFoundException {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bookstore", MySQL_user, MySQL_password);
+			
+			String sql = "insert into user values(?,?,?)";
+			PreparedStatement preparestatement = connect.prepareStatement(sql); 
+		    preparestatement.executeUpdate();
+		    connect.close();
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
 	}
 		
 }
