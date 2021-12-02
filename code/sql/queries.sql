@@ -6,11 +6,11 @@ ORDER BY name asc;
 CREATE VIEW healthyAnimal
 AS SELECT animal_id
 FROM medical
-WHERE diagnoses = "perfect health"
+WHERE diagnosis = "perfect health"
 order by animal_id;
 
 CREATE VIEW maxDonationView
-AS SELECT name, MAX(transaction_value)
+AS SELECT transaction_id, MAX(transaction_value)
 FROM shelter_finance;
 
 CREATE VIEW averageAgeView
@@ -29,7 +29,7 @@ WHERE animal.id = shelter_animal.animal_id
 ORDER BY inYear ASC;
 
 CREATE VIEW adoptorView
-AS SELECT animal.name, person.name
+AS SELECT animal.name, person.first_name, person.last_name
 FROM animal, person, shelter_animal
 WHERE animal.id = shelter_animal.animal_id AND person.id = shelter_animal.adopter_id;
 
@@ -39,11 +39,11 @@ FROM person, shelter_finance
 WHERE person.id = shelter_finance.person_id;
 
 CREATE VIEW commonAdoptedAnimals
-AS SELECT animal.physical_features, animal.age
+AS SELECT animal.physical_description, animal.age
 FROM animal 
 WHERE EXISTS (SELECT date_of_exit FROM shelter_animal);
 
 CREATE VIEW biggerThanAverageDonationsView
 AS SELECT transaction_id
 FROM shelter_finance 
-WHERE transaction_value > (SELECT AVG(transaction_value) FROM shelter_finances);
+WHERE transaction_value > (SELECT AVG(transaction_value) FROM shelter_finance);

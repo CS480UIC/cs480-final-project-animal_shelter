@@ -51,4 +51,8 @@ public class animalService {
 		return entity1Dao.findAnimals();
 		
 	}
+	public Object findHealthyAnimals() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+		// TODO Auto-generated method stub
+		return entity1Dao.findHealthyAnimals();
+	}
 }

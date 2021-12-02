@@ -164,6 +164,16 @@
     <url-pattern>/animalView</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <description></description>
+    <display-name>healthyAnimal</display-name>
+    <servlet-name>healthyAnimal</servlet-name>
+    <servlet-class>animal.web.servlet.healthyAnimal</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>healthyAnimal</servlet-name>
+    <url-pattern>/healthyAnimal</url-pattern>
+  </servlet-mapping>
   
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

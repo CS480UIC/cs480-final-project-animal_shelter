@@ -14,7 +14,7 @@ import animal.service.animalService;
  * Servlet implementation class findAll
  */
 
-public class animalView extends HttpServlet {
+public class healthyAnimal extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,23 +28,13 @@ public class animalView extends HttpServlet {
 		animalService userservice = new animalService();
 		try {
 			request.setAttribute("animalList", userservice.findHealthyAnimals());
-		} catch (InstantiationException | IllegalAccessException
-				| ClassNotFoundException e) {
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		try {
-//			List<Object> li = userservice.findall();
-//			for(int i = 0; i < li.size();i++){
-//				System.out.println(li.get(i).toString());
-//			}
-//			
-//		} catch (InstantiationException | IllegalAccessException
-//				| ClassNotFoundException e) {
-//			e.printStackTrace();
-//		}
 		
 		
-		request.getRequestDispatcher("/jsps/animal/animalView.jsp").forward(request, response);
+		request.getRequestDispatcher("/jsps/animal/healthyAnimal.jsp").forward(request, response);
 	}
 
 }

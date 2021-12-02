@@ -13,6 +13,7 @@ import java.util.List;
 
 import animal.domain.animal;
 import animal.domain.animalView;
+import animal.domain.healthyAnimal;
 import user.domain.User;
 
 /**
@@ -163,5 +164,27 @@ public class animalDao {
 		}
 		return list;
 		
+	}
+
+	public Object findHealthyAnimals() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		List<Object> list = new ArrayList<>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/animal_shelter", MySQL_user, MySQL_password);
+			String sql = "select * from healthyAnimal";
+			PreparedStatement preparestatement = connect.prepareStatement(sql); 
+			ResultSet resultSet = preparestatement.executeQuery();			
+			while(resultSet.next()){
+				healthyAnimal user = new healthyAnimal();
+				user.setAnimal_id(resultSet.getString("animal_id"));
+//	    		user.setPassword(resultSet.getString("password"));
+//	    		user.setEmail(resultSet.getString("email"));
+	    		list.add(user);
+			 }
+			connect.close();
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return list;
 	}
 }
