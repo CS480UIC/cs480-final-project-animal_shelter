@@ -18,13 +18,13 @@ import animal.domain.animal;
  * Servlet implementation class UserServlet
  */
 
-public class Entity1ServletUpdate extends HttpServlet {
+public class animalServletUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Entity1ServletUpdate() {
+	public animalServletUpdate() {
 		super();
 	}
 
@@ -47,7 +47,7 @@ public class Entity1ServletUpdate extends HttpServlet {
 		if(method.equals("search"))
 		{
 			try {
-				entity1 = entity1dao.findById(request.getParameter("username"));
+				entity1 = entity1dao.findById(request.getParameter("id"));
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (InstantiationException e1) {
@@ -56,14 +56,14 @@ public class Entity1ServletUpdate extends HttpServlet {
 				e1.printStackTrace();
 			}
 
-			if(entity1.getUsername()!=null){
-				request.setAttribute("entity1", entity1);
-				request.getRequestDispatcher("/jsps/entity1/entity1_update_output.jsp").forward(request, response);
+			if(entity1.getId()!=null){
+				request.setAttribute("animal", entity1);
+				request.getRequestDispatcher("/jsps/animal/animal_update_output.jsp").forward(request, response);
 
 			}
 			else{
-				request.setAttribute("msg", "Entity not found");
-				request.getRequestDispatcher("/jsps/entity1/entity1_read_output.jsp").forward(request, response);
+				request.setAttribute("msg", "animal not found");
+				request.getRequestDispatcher("/jsps/animal/animal_read_output.jsp").forward(request, response);
 			}
 		}
 		else if(method.equals("update"))
@@ -76,9 +76,16 @@ public class Entity1ServletUpdate extends HttpServlet {
 				String[] values = paramMap.get(name);
 				info.add(values[0]);
 			}
-			form.setPassword(info.get(2));
-			form.setEmail(info.get(3));
-			form.setUsername(request.getParameter("username"));
+//			form.setPassword(info.get(2));
+//			form.setEmail(info.get(3));
+//			form.setUsername(request.getParameter("username"));
+			form.setId(info.get(0));
+			form.setName(info.get(1));
+			form.setSpecies(info.get(2));	
+			form.setAge(Integer.parseInt(info.get(3)));
+			form.setPhysical_description(info.get(4));
+			form.setMicrochip_id(info.get(5));
+			form.setAdoption_history(info.get(6));
 
 			try {
 				entity1dao.update(form);
@@ -90,8 +97,8 @@ public class Entity1ServletUpdate extends HttpServlet {
 			} catch (IllegalAccessException e1) {
 				e1.printStackTrace();
 			}
-			request.setAttribute("msg", "Entity Updated");
-			request.getRequestDispatcher("/jsps/entity1/entity1_read_output.jsp").forward(request, response);
+			request.setAttribute("msg", "animal Updated");
+			request.getRequestDispatcher("/jsps/animal/animal_read_output.jsp").forward(request, response);
 		}
 	}
 }

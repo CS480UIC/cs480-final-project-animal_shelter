@@ -106,6 +106,17 @@
   
   <servlet>
     <description></description>
+    <display-name>animalServletUpdate</display-name>
+    <servlet-name>animalServletUpdate</servlet-name>
+    <servlet-class>animal.web.servlet.animalServletUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>animalServletUpdate</servlet-name>
+    <url-pattern>/animalServletUpdate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
     <display-name>animalServletDelete</display-name>
     <servlet-name>animalServletDelete</servlet-name>
     <servlet-class>animal.web.servlet.animalServletDelete</servlet-class>
