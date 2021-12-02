@@ -6,7 +6,7 @@
 <html>
   <head>
     
-    <title>Entity1 Create</title>
+    <title>animal Create</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -22,24 +22,27 @@
   
   <body>
   <h1>Create animal</h1>
-<form action="<c:url value='/Entity1ServletCreate'/>" method="post">
-	name    :<input type="text" name="name" value="${form.username }"/>
-	<span style="color: red; font-weight: 900">${errors.username }</span>
+<form action="<c:url value='/animalServletCreate'/>" method="post">
+	id    :<input type="text" name="id" value="${form.id }"/>
+	<span style="color: red; font-weight: 900">${errors.id }</span>
 	<br/>
-	species：<input type="text" name="species" value="${form.password }"/>
-	<span style="color: red; font-weight: 900">${errors.password }</span>
+	name    :<input type="text" name="name" value="${form.name }"/>
+	<span style="color: red; font-weight: 900">${errors.name }</span>
 	<br/>
-	age	：<input type="text" name="age" value="${form.email }"/>
-	<span style="color: red; font-weight: 900">${errors.email }</span>
+	species：<input type="text" name="species" value="${form.species }"/>
+	<span style="color: red; font-weight: 900">${errors.species }</span>
 	<br/>
-	physical_description	：<input type="text" name="physical_description" value="${form.email }"/>
-	<span style="color: red; font-weight: 900">${errors.email }</span>
+	age	：<input type="text" name="age" value="${form.age }"/>
+	<span style="color: red; font-weight: 900">${errors.age }</span>
 	<br/>
-	microchip_id	：<input type="text" name="microchip_id" value="${form.email }"/>
-	<span style="color: red; font-weight: 900">${errors.email }</span>
+	physical_description	：<input type="text" name="physical_description" value="${form.physical_description }"/>
+	<span style="color: red; font-weight: 900">${errors.physical_description }</span>
 	<br/>
-	adoption_history	：<input type="text" name="adoption_history" value="${form.email }"/>
-	<span style="color: red; font-weight: 900">${errors.email }</span>
+	microchip_id	：<input type="text" name="microchip_id" value="${form.microchip_id }"/>
+	<span style="color: red; font-weight: 900">${errors.microchip_id }</span>
+	<br/>
+	adoption_history	：<input type="text" name="adoption_history" value="${form.adoption_history }"/>
+	<span style="color: red; font-weight: 900">${errors.adoption_history }</span>
 	<br/>
 	<input type="submit" value="Create animal"/>
 </form>

@@ -38,6 +38,9 @@
 		<c:when test="${empty sessionScope.session_user }">
 			<a href="<c:url value='/jsps/user/login.jsp'/>" target="_parent">Login</a> |&nbsp; 
 			<a href="<c:url value='/jsps/user/regist.jsp'/>" target="_parent">Register</a> |&nbsp; <br/>
+			<a href="<c:url value='/jsps/initialize/init.jsp'/>" target="_parent">InitializeDB</a> |&nbsp; <br/>
+			
+			
 			<a href="<c:url value='/jsps/animal/animal_create.jsp'/>" target="_parent">Create animal</a> |&nbsp; 
 			<a href="<c:url value='/jsps/animal/animal_read.jsp'/>" target="_parent">Read animal</a> |&nbsp; 
 			<a href="<c:url value='/jsps/animal/animal_update.jsp'/>" target="_parent">Update animal</a> |&nbsp;
