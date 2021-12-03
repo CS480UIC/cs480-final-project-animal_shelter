@@ -175,6 +175,17 @@
     <url-pattern>/healthyAnimal</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <description></description>
+    <display-name>adoptorView</display-name>
+    <servlet-name>adoptorView</servlet-name>
+    <servlet-class>animal.web.servlet.adoptorView</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>adoptorView</servlet-name>
+    <url-pattern>/adoptorView</url-pattern>
+  </servlet-mapping>
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>login.jsp</welcome-file>

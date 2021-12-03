@@ -27,7 +27,7 @@
     <a href="<c:url value='/findAll'/>" target="body">Please list all the user in the table</a>&nbsp;&nbsp; <br/>
     <a href="<c:url value='/animalView'/>" target="body">Please list all animals in the table animal</a>&nbsp;&nbsp; <br/>
     <a href="<c:url value='/healthyAnimal'/>" target="body">Please list all the healthy animals in the table</a>&nbsp;&nbsp;<br/>
-    <a href="<c:url value='/findAll'/>" target="body">Please list the maximum donation in the table</a>&nbsp;&nbsp;
+    <a href="<c:url value='/adoptorView'/>" target="body">Please list all the adopters and their animal names</a>&nbsp;&nbsp;
  
     
   </body>

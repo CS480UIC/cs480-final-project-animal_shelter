@@ -55,4 +55,8 @@ public class animalService {
 		// TODO Auto-generated method stub
 		return entity1Dao.findHealthyAnimals();
 	}
+	public Object findAdopters() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
