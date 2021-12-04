@@ -48,7 +48,8 @@ public class InitializeServlet extends HttpServlet {
 		InitService init = new InitService();
 		
 		//Read the file from webapp/sql
-		InputStream input = getServletContext().getResourceAsStream("/sql/initializeDB.sql");
+		InputStream input = getServletContext().getResourceAsStream("/sql/initalizeDB.sql");
+		System.out.print(input);
 
 		
 		try {
