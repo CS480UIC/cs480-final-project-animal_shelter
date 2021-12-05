@@ -1,4 +1,4 @@
-package medical.web.servlet;
+package person.web.servlet;
 
 import java.io.IOException;
 
@@ -8,21 +8,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import medical.dao.PersonDao;
-import medical.domain.Person;
+import person.dao.PersonDao;
+import person.domain.Person;
 
 
 /**
  * Servlet implementation class UserServlet
  */
 
-public class MedicalServletRead extends HttpServlet {
+public class PersonServletRead extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MedicalServletRead() {
+    public PersonServletRead() {
         super();
     }
     
@@ -37,12 +37,12 @@ public class MedicalServletRead extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Person medical = null;
-		PersonDao medicalDao = new PersonDao();
+		Person person = null;
+		PersonDao personDao = new PersonDao();
 		
 		try {
-			System.out.print(request.getParameter("animal_id"));
-			medical = medicalDao.findByAnimalId(request.getParameter("animal_id"));
+			System.out.print(request.getParameter("id"));
+			person = personDao.findById(request.getParameter("id"));
 			
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
@@ -52,14 +52,14 @@ public class MedicalServletRead extends HttpServlet {
 			e1.printStackTrace();
 		}
 		
-		if(medical.getAnimal_id()!=null){
-					System.out.println(medical);
-					request.setAttribute("medical", medical);
-					request.getRequestDispatcher("/jsps/medical/medical_read_output.jsp").forward(request, response);
+		if(person.getId()!=null){
+					System.out.println(person);
+					request.setAttribute("person", person);
+					request.getRequestDispatcher("/jsps/person/person_read_output.jsp").forward(request, response);
 			}
 			else{
-			request.setAttribute("msg", "medical not found");
-			request.getRequestDispatcher("/jsps/medical/medical_read_output.jsp").forward(request, response);
+			request.setAttribute("msg", "person not found");
+			request.getRequestDispatcher("/jsps/person/person_read_output.jsp").forward(request, response);
 		}
 	}
 }

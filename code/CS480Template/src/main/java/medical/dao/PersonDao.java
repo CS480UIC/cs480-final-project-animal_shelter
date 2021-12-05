@@ -13,12 +13,12 @@ import java.sql.SQLException;
 //import java.util.ArrayList;
 //import java.util.List;
 
-import medical.domain.Medical;
+import medical.domain.Person;
 
 /**
  * DDL functions performed in database
  */
-public class MedicalDao {
+public class PersonDao {
 	
 	/**
 	 * user name to connect to the database 
@@ -30,8 +30,8 @@ public class MedicalDao {
 	 */
 	private String MySQL_password = "animalshelter480"; //TODO change password
 
-	public Medical findByAnimalId(String animalId) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-		Medical medical = new Medical();
+	public Person findByAnimalId(String animalId) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+		Person medical = new Person();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/animal_shelter", MySQL_user, MySQL_password);
@@ -67,7 +67,7 @@ public class MedicalDao {
 	 * @throws InstantiationException 
 	 */
 	
-	public void add(Medical form) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public void add(Person form) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/animal_shelter", MySQL_user, MySQL_password);
@@ -95,7 +95,7 @@ public class MedicalDao {
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */
-	public void update(Medical form) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public void update(Person form) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/animal_shelter", MySQL_user, MySQL_password);

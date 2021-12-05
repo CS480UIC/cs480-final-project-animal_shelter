@@ -1,16 +1,16 @@
-package medical.service;
+package person.service;
 
 
-import medical.dao.PersonDao;
-import medical.domain.Person;
+import person.dao.PersonDao;
+import person.domain.Person;
 
 /**
  * logic functions such as register, login
  * @author Aayush Makharia
  *
  */
-public class MedicalService {
-	private PersonDao medicalDao = new PersonDao();
+public class PersonService {
+	private PersonDao personDao = new PersonDao();
 	
 	/**
 	 * register a Entity1
@@ -19,11 +19,11 @@ public class MedicalService {
 	 * @throws IllegalAccessException 
 	 * @throws InstantiationException 
 	 */
-	public void create(Person form) throws MedicalException, ClassNotFoundException, InstantiationException, IllegalAccessException{
+	public void create(Person form) throws PersonException, ClassNotFoundException, InstantiationException, IllegalAccessException{
 		// check the primary key of Entity1
 //		Medical medical = medicalDao.findByAnimalId(form.getAnimal_id());
 //		if(medical.getAnimal_id()!=null && medical.getAnimal_id().equals(form.getAnimal_id())) throw new MedicalException("This medical record has been registered!");
-		medicalDao.add(form);
+		personDao.add(form);
 	}
 	/**
 	 * Login function
