@@ -1,4 +1,4 @@
-package entity1.web.servlet;
+package medical.web.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,22 +11,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import entity1.domain.Medical;
-import entity1.service.Entity1Exception;
-import entity1.service.MedicalService;
+import medical.domain.Medical;
+import medical.service.MedicalException;
+import medical.service.MedicalService;
 
 
 /**
  * Servlet implementation class UserServlet
  */
 
-public class Entity1ServletCreate extends HttpServlet {
+public class MedicalServletCreate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Entity1ServletCreate() {
+    public MedicalServletCreate() {
         super();
     }
 
@@ -41,7 +41,7 @@ public class Entity1ServletCreate extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MedicalService entity1service = new MedicalService();
+		MedicalService medicalservice = new MedicalService();
 		Map<String,String[]> paramMap = request.getParameterMap();
 		Medical form = new Medical();
 		List<String> info = new ArrayList<String>();
@@ -50,15 +50,19 @@ public class Entity1ServletCreate extends HttpServlet {
 			String[] values = paramMap.get(name);
 			info.add(values[0]);
 		}
-		form.setUsername(info.get(0));
-		form.setPassword(info.get(1));
-		form.setEmail(info.get(2));		
+		form.setAnimal_id(info.get(0));
+		form.setClinic_id(info.get(1));
+		form.setVet_id(info.get(2));	
+		form.setDate_of_visit(java.sql.Date.valueOf(info.get(3)));
+		form.setDiagnosis(info.get(4));
+		form.setPrescription(info.get(5));
+		form.setTotal_due(Integer.parseInt(info.get(6)));
 		
 		try {
-			entity1service.create(form);
+			medicalservice.create(form);
 			response.sendRedirect( request.getContextPath() + "/jsps/main.jsp");
 			
-		} catch (ClassNotFoundException | Entity1Exception e) {
+		} catch (ClassNotFoundException | MedicalException e) {
 			e.printStackTrace();
 		} catch (InstantiationException e) {
 			e.printStackTrace();

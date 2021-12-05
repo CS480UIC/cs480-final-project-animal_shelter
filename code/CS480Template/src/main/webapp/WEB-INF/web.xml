@@ -126,6 +126,27 @@
     <url-pattern>/animalServletDelete</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <description></description>
+    <display-name>medicalServletCreate</display-name>
+    <servlet-name>medicalServletCreate</servlet-name>
+    <servlet-class>medical.web.servlet.MedicalServletCreate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>medicalServletCreate</servlet-name>
+    <url-pattern>/medicalServletCreate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>medicalServletRead</display-name>
+    <servlet-name>medicalServletRead</servlet-name>
+    <servlet-class>medical.web.servlet.MedicalServletRead</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>medicalServletRead</servlet-name>
+    <url-pattern>/medicalServletRead</url-pattern>
+  </servlet-mapping>
   
   <servlet>
     <description></description>

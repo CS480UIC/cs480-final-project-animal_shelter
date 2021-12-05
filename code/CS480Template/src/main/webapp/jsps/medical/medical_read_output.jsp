@@ -6,7 +6,7 @@
 <html>
   <head>
     
-    <title>Read Entity Output</title>
+    <title>Read Medical Output</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -21,14 +21,22 @@
   </head>
   
   <body>
-  <h1>Read Entity Output</h1>
+  <h1>Read Medical Output</h1>
 <p style="color: red; font-weight: 900">${msg }</p>
 <form>
-	User    :<input type="text" name="username" value="${entity1.username }" disabled/>
+	animal_id    :<input type="text" name="animal_id" value="${medical.animal_id }" disabled/>
 	<br/>
-	Password：<input type="text" name="password" value="${entity1.password }" disabled/>
+	clinic_id：<input type="text" name="clinic_id" value="${medical.clinic_id }" disabled/>
 	<br/>
-	Email	：<input type="text" name="email" value="${entity1.email }" disabled/>
+	vet_id	：<input type="text" name="vet_id" value="${medical.vet_id }" disabled/>
+	<br/>
+	date_of_visit	：<input type="text" name="date_of_visit" value="${medical.date_of_visit }" disabled/>
+	<br/>
+	diagnosis	：<input type="text" name="diagnosis" value="${medical.diagnosis }" disabled/>
+	<br/>
+	prescription	：<input type="text" name="prescription" value="${medical.prescription }" disabled/>
+	<br/>
+	total_due	：<input type="text" name="total_due" value="${medical.total_due }" disabled/>
 	<br/>
 </form>
 

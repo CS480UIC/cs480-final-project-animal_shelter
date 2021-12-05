@@ -22,27 +22,27 @@
   
   <body>
   <h1>Create medical</h1>
-	<form action="<c:url value='/Entity1ServletCreate'/>" method="post">
-		animal_id    :<input type="text" name="animal_id" value="${form.username }"/>
-		<span style="color: red; font-weight: 900">${errors.username }</span>
+	<form action="<c:url value='/medicalServletCreate'/>" method="post">
+		animal_id    :<input type="text" name="animal_id" value="${form.animal_id }"/>
+		<span style="color: red; font-weight: 900">${errors.animal_id }</span>
 		<br/>
-		clinic_id    :<input type="text" name="clinic_id" value="${form.username }"/>
-		<span style="color: red; font-weight: 900">${errors.username }</span>
+		clinic_id    :<input type="text" name="clinic_id" value="${form.clinic_id }"/>
+		<span style="color: red; font-weight: 900">${errors.clinic_id }</span>
 		<br/>
-		vet_id    :<input type="text" name="vet_id" value="${form.username }"/>
-		<span style="color: red; font-weight: 900">${errors.username }</span>
+		vet_id    :<input type="text" name="vet_id" value="${form.vet_id }"/>
+		<span style="color: red; font-weight: 900">${errors.vet_id }</span>
 		<br/>
-		date_of_visit    :<input type="text" name="date_of_visit" value="${form.username }"/>
-		<span style="color: red; font-weight: 900">${errors.username }</span>
+		date_of_visit    :<input type="text" name="date_of_visit" value="${form.date_of_visit }"/>
+		<span style="color: red; font-weight: 900">${errors.date_of_visit }</span>
 		<br/>
-		diagnosis    :<input type="text" name="diagnosis" value="${form.username }"/>
-		<span style="color: red; font-weight: 900">${errors.username }</span>
+		diagnosis    :<input type="text" name="diagnosis" value="${form.diagnosis }"/>
+		<span style="color: red; font-weight: 900">${errors.diagnosis }</span>
 		<br/>
-		prescription    :<input type="text" name="prescription" value="${form.username }"/>
-		<span style="color: red; font-weight: 900">${errors.username }</span>
+		prescription    :<input type="text" name="prescription" value="${form.prescription }"/>
+		<span style="color: red; font-weight: 900">${errors.prescription }</span>
 		<br/>
-		total_due    :<input type="text" name="total_due" value="${form.username }"/>
-		<span style="color: red; font-weight: 900">${errors.username }</span>
+		total_due    :<input type="text" name="total_due" value="${form.total_due }"/>
+		<span style="color: red; font-weight: 900">${errors.total_due }</span>
 		<br/>
 		<input type="submit" value="Create medical"/>
 	</form>
