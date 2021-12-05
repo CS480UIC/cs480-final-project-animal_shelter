@@ -6,7 +6,7 @@
 <html>
   <head>
     
-    <title>Delete Entity</title>
+    <title>Update medical</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -21,28 +21,48 @@
   </head>
   
   <body>
-  <h1>Update Entity</h1>
+  <h1>Update medical</h1>
 <p style="color: red; font-weight: 900">${msg }</p>
 <form>
-	User    :<input type="text" name="username1" value="${entity1.username }" disabled/>
+	animal_id    :<input type="text" name="animal_id" value="${medical.animal_id }" disabled/>
 	<br/>
-	
-	Password：<input type="text" name="password1" value="${entity1.password }" disabled />
+	clinic_id：<input type="text" name="clinic_id" value="${medical.clinic_id }" disabled/>
 	<br/>
-	Email	：<input type="text" name="email1" value="${entity1.email }" disabled/>
+	vet_id	：<input type="text" name="vet_id" value="${medical.vet_id }" disabled/>
+	<br/>
+	date_of_visit	：<input type="text" name="date_of_visit" value="${medical.date_of_visit }" disabled/>
+	<br/>
+	diagnosis	：<input type="text" name="diagnosis" value="${medical.diagnosis }" disabled/>
+	<br/>
+	prescription	：<input type="text" name="prescription" value="${medical.prescription }" disabled/>
+	<br/>
+	total_due	：<input type="text" name="total_due" value="${medical.total_due }" disabled/>
 	<br/>
 </form>
 <h1>Update the values below</h1>
-<form action="<c:url value='/Entity1ServletUpdate'/>" method="post">
-		<input type="hidden" name="method" value="update"/>
-				<input type="hidden" name="username" value="${entity1.username }"/>
-	Password：<input type="password" name="password" value="${form.password }"/>
-	<span style="color: red; font-weight: 900">${errors.password }</span>
+<form action="<c:url value='/medicalServletUpdate'/>" method="post">
+	<input type="hidden" name="method" value="update"/>
+	<input type="hidden" name="animal_id" value="${entity1.animal_id }"/>
+	clinic_id：<input type="text" name="clinic_id" value="${form.clinic_id }"/>
+	<span style="color: red; font-weight: 900">${errors.clinic_id }</span>
 	<br/>
-	Email	：<input type="text" name="email" value="${form.email }"/>
-	<span style="color: red; font-weight: 900">${errors.email }</span>
+	vet_id	：<input type="text" name="vet_id" value="${form.vet_id }"/>
+	<span style="color: red; font-weight: 900">${errors.vet_id }</span>
 	<br/>
-	<input type="submit" value="Update Entity1"/>
+	date_of_visit	：<input type="text" name="date_of_visit" value="${form.date_of_visit }"/>
+	<span style="color: red; font-weight: 900">${errors.date_of_visit }</span>
+	<br/>
+	diagnosis	：<input type="text" name="diagnosis" value="${form.diagnosis }"/>
+	<span style="color: red; font-weight: 900">${errors.diagnosis }</span>
+	<br/>
+	prescription	：<input type="text" name="prescription" value="${form.prescription }"/>
+	<span style="color: red; font-weight: 900">${errors.prescription }</span>
+	<br/>
+	total_due	：<input type="text" name="total_due" value="${form.total_due }"/>
+	<span style="color: red; font-weight: 900">${errors.total_due }</span>
+	<br/>
+	
+	<input type="submit" value="Update medical"/>
 </form>
 
 </body>

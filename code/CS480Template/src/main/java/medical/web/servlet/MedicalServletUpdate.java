@@ -1,4 +1,4 @@
-package entity1.web.servlet;
+package medical.web.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,20 +11,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import entity1.dao.MedicalDao;
-import entity1.domain.Medical;
+import medical.dao.MedicalDao;
+import medical.domain.Medical;
 
 /**
  * Servlet implementation class UserServlet
  */
 
-public class Entity1ServletUpdate extends HttpServlet {
+public class MedicalServletUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Entity1ServletUpdate() {
+	public MedicalServletUpdate() {
 		super();
 	}
 
@@ -41,13 +41,13 @@ public class Entity1ServletUpdate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String method = request.getParameter("method");
-		MedicalDao entity1dao = new MedicalDao();
-		Medical entity1 = null;
+		MedicalDao medicaldao = new MedicalDao();
+		Medical medical = null;
 
 		if(method.equals("search"))
 		{
 			try {
-				entity1 = entity1dao.findByUsername(request.getParameter("username"));
+				medical = medicaldao.findByAnimalId(request.getParameter("animal_id"));
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (InstantiationException e1) {
@@ -56,14 +56,14 @@ public class Entity1ServletUpdate extends HttpServlet {
 				e1.printStackTrace();
 			}
 
-			if(entity1.getUsername()!=null){
-				request.setAttribute("entity1", entity1);
-				request.getRequestDispatcher("/jsps/entity1/entity1_update_output.jsp").forward(request, response);
+			if(medical.getAnimal_id()!=null){
+				request.setAttribute("medical", medical);
+				request.getRequestDispatcher("/jsps/medical/medical_update_output.jsp").forward(request, response);
 
 			}
 			else{
-				request.setAttribute("msg", "Entity not found");
-				request.getRequestDispatcher("/jsps/entity1/entity1_read_output.jsp").forward(request, response);
+				request.setAttribute("msg", "medical not found");
+				request.getRequestDispatcher("/jsps/medical/medical_read_output.jsp").forward(request, response);
 			}
 		}
 		else if(method.equals("update"))
@@ -76,12 +76,15 @@ public class Entity1ServletUpdate extends HttpServlet {
 				String[] values = paramMap.get(name);
 				info.add(values[0]);
 			}
-			form.setPassword(info.get(2));
-			form.setEmail(info.get(3));
-			form.setUsername(request.getParameter("username"));
+			form.setClinic_id(info.get(2));
+			form.setVet_id(info.get(3));	
+			form.setDate_of_visit(java.sql.Date.valueOf(info.get(4)));
+			form.setDiagnosis(info.get(5));
+			form.setPrescription(info.get(6));
+			form.setTotal_due(Integer.parseInt(info.get(7)));
 
 			try {
-				entity1dao.update(form);
+				medicaldao.update(form);
 
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
@@ -90,8 +93,8 @@ public class Entity1ServletUpdate extends HttpServlet {
 			} catch (IllegalAccessException e1) {
 				e1.printStackTrace();
 			}
-			request.setAttribute("msg", "Entity Updated");
-			request.getRequestDispatcher("/jsps/entity1/entity1_read_output.jsp").forward(request, response);
+			request.setAttribute("msg", "medical Updated");
+			request.getRequestDispatcher("/jsps/medical/medical_read_output.jsp").forward(request, response);
 		}
 	}
 }

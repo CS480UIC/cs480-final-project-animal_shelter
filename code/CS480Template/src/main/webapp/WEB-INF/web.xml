@@ -150,6 +150,17 @@
   
   <servlet>
     <description></description>
+    <display-name>medicalServletUpdate</display-name>
+    <servlet-name>medicalServletUpdate</servlet-name>
+    <servlet-class>medical.web.servlet.MedicalServletUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>medicalServletUpdate</servlet-name>
+    <url-pattern>/medicalServletUpdate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
     <display-name>InitializeDB</display-name>
     <servlet-name>InitializeDB</servlet-name>
     <servlet-class>init.web.servlet.InitializeServlet</servlet-class>

@@ -89,29 +89,38 @@ public class MedicalDao {
 	}
 	
 	
-//	/**
-//	 * @param form
-//	 * @throws ClassNotFoundException
-//	 * @throws InstantiationException
-//	 * @throws IllegalAccessException
-//	 */
-//	public void update(Medical form) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-//		try {
-//			Class.forName("com.mysql.cj.jdbc.Driver");
-//			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bookstore", MySQL_user, MySQL_password);
-//			
-//			String sql = "UPDATE entity1 SET password = ?, email = ? where username = ?;";
-//			PreparedStatement preparestatement = connect.prepareStatement(sql); 
+	/**
+	 * @param form
+	 * @throws ClassNotFoundException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 */
+	public void update(Medical form) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/animal_shelter", MySQL_user, MySQL_password);
+			
+			String sql = "UPDATE medical SET clinic_id = ?, vet_id = ?, date_of_visit = ?, diagnosis = ?, prescription = ?, total_due = ? where animal_id = ?;";
+			PreparedStatement preparestatement = connect.prepareStatement(sql); 
 //		    preparestatement.setString(1,form.getPassword());
 //			preparestatement.setString(2,form.getEmail());
 //		    preparestatement.setString(3,form.getUsername());
-//		    preparestatement.executeUpdate();
-//		    connect.close();
-//		} catch(SQLException e) {
-//			throw new RuntimeException(e);
-//		}
-//	}
-//	
+		    
+		    preparestatement.setString(7,form.getAnimal_id());
+		    preparestatement.setString(1,form.getClinic_id());
+		    preparestatement.setString(2,form.getVet_id());
+		    preparestatement.setString(3,String.valueOf(form.getDate_of_visit()));
+		    preparestatement.setString(4,form.getDiagnosis());
+		    preparestatement.setString(5,form.getPrescription());
+		    preparestatement.setString(6,String.valueOf(form.getTotal_due()));
+		    
+		    preparestatement.executeUpdate();
+		    connect.close();
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 //	
 //	/**
 //	 * @param username
