@@ -161,6 +161,17 @@
   
   <servlet>
     <description></description>
+    <display-name>medicalServletDelete</display-name>
+    <servlet-name>medicalServletDelete</servlet-name>
+    <servlet-class>medical.web.servlet.MedicalServletDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>medicalServletDelete</servlet-name>
+    <url-pattern>/medicalServletDelete</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
     <display-name>InitializeDB</display-name>
     <servlet-name>InitializeDB</servlet-name>
     <servlet-class>init.web.servlet.InitializeServlet</servlet-class>
