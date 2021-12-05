@@ -54,7 +54,7 @@ public class InitializeServlet extends HttpServlet {
 		
 		try {
 			init.initializeDB(input);
-			response.sendRedirect( request.getContextPath() + "/jsps/user/login.jsp");
+			response.sendRedirect( request.getContextPath() + "/jsps/user/regist.jsp");
 		} catch (ClassNotFoundException | InitException e) {
 			e.printStackTrace();
 		} catch (InstantiationException e) {

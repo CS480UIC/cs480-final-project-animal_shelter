@@ -40,6 +40,12 @@
 			<a href="<c:url value='/jsps/user/regist.jsp'/>" target="_parent">Register</a> |&nbsp; <br/>
 			<a href="<c:url value='/jsps/initialize/init.jsp'/>" target="_parent">InitializeDB</a> |&nbsp; <br/>
 			
+		</c:when>
+		<c:otherwise>
+			Hello：${sessionScope.session_user.username };
+			<a href="<c:url value='/jsps/user/queries.jsp'/>" target="body">Query Result</a> |&nbsp;&nbsp;
+			<a href="<c:url value='/UserServletLogout'/>" target="_parent">Logout</a> |&nbsp; 
+			<a href="<c:url value='/jsps/entity1/menu.jsp'/>" target="body">CRUD entity 1</a> |&nbsp;&nbsp; <br/>
 			
 			<a href="<c:url value='/jsps/animal/animal_create.jsp'/>" target="_parent">Create animal</a> |&nbsp; 
 			<a href="<c:url value='/jsps/animal/animal_read.jsp'/>" target="_parent">Read animal</a> |&nbsp; 
@@ -66,12 +72,6 @@
 			<a href="<c:url value='/jsps/shelter_finance/shelter_finance_update.jsp'/>" target="_parent">Update shelter_finance</a> |&nbsp;
 			<a href="<c:url value='/jsps/shelter_finance/shelter_finance_delete.jsp'/>" target="_parent">Delete shelter_finance</a> |&nbsp; <br/>
 	
-		</c:when>
-		<c:otherwise>
-			Hello：${sessionScope.session_user.username };
-			<a href="<c:url value='/jsps/user/queries.jsp'/>" target="body">Query Result</a> |&nbsp;&nbsp;
-			<a href="<c:url value='/UserServletLogout'/>" target="_parent">Logout</a> |&nbsp; 
-			<a href="<c:url value='/jsps/entity1/menu.jsp'/>" target="body">CRUD entity 1</a> |&nbsp;&nbsp;
 
 		</c:otherwise>
 	</c:choose>
