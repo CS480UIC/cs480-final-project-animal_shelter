@@ -6,7 +6,7 @@
 <html>
   <head>
     
-    <title>Delete Entity</title>
+    <title>Delete person</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -21,19 +21,34 @@
   </head>
   
   <body>
-  <h1>Delete Entity</h1>
+  <h1>Delete person</h1>
 <p style="color: red; font-weight: 900">${msg }</p>
-<form action="<c:url value='/Entity1ServletDelete'/>" method="post">
+<form action="<c:url value='/personServletDelete'/>" method="post">
 	<input type="hidden" name="method" value="delete"/>
-		<input type="hidden" name="username" value="${entity1.username }"/>
-	User    :<input type="text" name="username" value="${entity1.username }" disabled/>
+	<input type="hidden" name="id" value="${person.id }"/>
+	id    :<input type="text" name="id" value="${person.id }" disabled/>
 	<br/>
-	
-	Password：<input type="text" name="password" value="${entity1.password }" disabled/>
+	first_name：<input type="text" name="first_name" value="${person.first_name }" disabled/>
 	<br/>
-	Email	：<input type="text" name="email" value="${entity1.email }" disabled/>
+	last_name	：<input type="text" name="last_name" value="${person.last_name }" disabled/>
 	<br/>
-	<input type="submit" value="Delete Entity1"/>
+	dob	：<input type="text" name="dob" value="${person.dob }" disabled/>
+	<br/>
+	email	：<input type="text" name="email" value="${person.email }" disabled/>
+	<br/>
+	phone	：<input type="text" name="phone" value="${person.phone }" disabled/>
+	<br/>
+	street_address	：<input type="text" name="street_address" value="${person.street_address }" disabled/>
+	<br/>
+	zip_code	：<input type="text" name="zip_code" value="${person.zip_code }" disabled/>
+	<br/>
+	housing_status	：<input type="text" name="housing_status" value="${person.housing_status }" disabled/>
+	<br/>
+	kids	：<input type="text" name="kids" value="${person.kids }" disabled/>
+	<br/>
+	adoption_history	：<input type="text" name="adoption_status" value="${person.adoption_history }" disabled/>
+	<br/>
+	<input type="submit" value="Delete person]"/>
 </form>
 
 </body>

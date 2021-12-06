@@ -108,19 +108,23 @@ public class PersonDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/animal_shelter", MySQL_user, MySQL_password);
 			
-			String sql = "UPDATE person SET clinic_id = ?, vet_id = ?, date_of_visit = ?, diagnosis = ?, prescription = ?, total_due = ? where animal_id = ?;";
+			String sql = "UPDATE person SET first_name = ?, last_name = ?, dob = ?, email = ?, phone = ?, street_address = ?, zip_code = ?, housing_status = ?, kids = ?, adoption_history = ? where id = ?;";
 			PreparedStatement preparestatement = connect.prepareStatement(sql); 
 //		    preparestatement.setString(1,form.getPassword());
 //			preparestatement.setString(2,form.getEmail());
 //		    preparestatement.setString(3,form.getUsername());
 		    
-		    preparestatement.setString(7,form.getAnimal_id());
-		    preparestatement.setString(1,form.getClinic_id());
-		    preparestatement.setString(2,form.getVet_id());
-		    preparestatement.setString(3,String.valueOf(form.getDate_of_visit()));
-		    preparestatement.setString(4,form.getDiagnosis());
-		    preparestatement.setString(5,form.getPrescription());
-		    preparestatement.setString(6,String.valueOf(form.getTotal_due()));
+			 preparestatement.setString(1,form.getFirst_name());
+			 preparestatement.setString(2,form.getLast_name());
+			 preparestatement.setString(3,String.valueOf(form.getDob()));
+			 preparestatement.setString(4,form.getEmail());
+			 preparestatement.setString(5,form.getPhone());
+			 preparestatement.setString(6,form.getStreet_address());
+			 preparestatement.setString(7,form.getZip_code());
+			 preparestatement.setString(8,form.getHousing_status());
+			 preparestatement.setString(9,String.valueOf(form.getKids()));
+			 preparestatement.setString(10,form.getAdoption_history());
+			 preparestatement.setString(11,form.getId());
 		    
 		    preparestatement.executeUpdate();
 		    connect.close();
@@ -129,26 +133,26 @@ public class PersonDao {
 		}
 	}
 	
-//	
-//	/**
-//	 * @param username
-//	 * @throws ClassNotFoundException
-//	 * @throws InstantiationException
-//	 * @throws IllegalAccessException
-//	 */
-//	public void delete(String animal_id) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-//		try {
-//			Class.forName("com.mysql.cj.jdbc.Driver");
-//			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/animal_shelter", MySQL_user, MySQL_password);
-//			
-//			String sql = "delete from medical where animal_id = ?";
-//			PreparedStatement preparestatement = connect.prepareStatement(sql); 
-//		    preparestatement.setString(1,animal_id);
-//		    System.out.println(preparestatement);
-//		    preparestatement.executeUpdate();
-//		    connect.close();
-//		} catch(SQLException e) {
-//			throw new RuntimeException(e);
-//		}
-//	}
+	
+	/**
+	 * @param username
+	 * @throws ClassNotFoundException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 */
+	public void delete(String id) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/animal_shelter", MySQL_user, MySQL_password);
+			
+			String sql = "delete from person where id = ?";
+			PreparedStatement preparestatement = connect.prepareStatement(sql); 
+		    preparestatement.setString(1,id);
+		    System.out.println(preparestatement);
+		    preparestatement.executeUpdate();
+		    connect.close();
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

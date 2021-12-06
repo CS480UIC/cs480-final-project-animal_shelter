@@ -1,4 +1,4 @@
-package medical.web.servlet;
+package person.web.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,20 +11,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import medical.dao.PersonDao;
-import medical.domain.Person;
+import person.dao.PersonDao;
+import person.domain.Person;
 
 /**
  * Servlet implementation class UserServlet
  */
 
-public class MedicalServletUpdate extends HttpServlet {
+public class PersonServletUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public MedicalServletUpdate() {
+	public PersonServletUpdate() {
 		super();
 	}
 
@@ -41,13 +41,13 @@ public class MedicalServletUpdate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String method = request.getParameter("method");
-		PersonDao medicaldao = new PersonDao();
-		Person medical = null;
+		PersonDao persondao = new PersonDao();
+		Person person = null;
 
 		if(method.equals("search"))
 		{
 			try {
-				medical = medicaldao.findByAnimalId(request.getParameter("animal_id"));
+				person = persondao.findById(request.getParameter("id"));
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (InstantiationException e1) {
@@ -56,14 +56,14 @@ public class MedicalServletUpdate extends HttpServlet {
 				e1.printStackTrace();
 			}
 
-			if(medical.getAnimal_id()!=null){
-				request.setAttribute("medical", medical);
-				request.getRequestDispatcher("/jsps/medical/medical_update_output.jsp").forward(request, response);
+			if(person.getId()!=null){
+				request.setAttribute("person", person);
+				request.getRequestDispatcher("/jsps/person/person_update_output.jsp").forward(request, response);
 
 			}
 			else{
-				request.setAttribute("msg", "medical not found");
-				request.getRequestDispatcher("/jsps/medical/medical_read_output.jsp").forward(request, response);
+				request.setAttribute("msg", "person not found");
+				request.getRequestDispatcher("/jsps/person/person_read_output.jsp").forward(request, response);
 			}
 		}
 		else if(method.equals("update"))
@@ -76,15 +76,20 @@ public class MedicalServletUpdate extends HttpServlet {
 				String[] values = paramMap.get(name);
 				info.add(values[0]);
 			}
-			form.setClinic_id(info.get(2));
-			form.setVet_id(info.get(3));	
-			form.setDate_of_visit(java.sql.Date.valueOf(info.get(4)));
-			form.setDiagnosis(info.get(5));
-			form.setPrescription(info.get(6));
-			form.setTotal_due(Integer.parseInt(info.get(7)));
-
+			
+			form.setId(info.get(1));
+			form.setFirst_name(info.get(2));
+			form.setLast_name(info.get(3));	
+			form.setDob(java.sql.Date.valueOf(info.get(4)));
+			form.setEmail(info.get(5));
+			form.setPhone(info.get(6));
+			form.setStreet_address(info.get(7));
+			form.setZip_code(info.get(8));
+			form.setHousing_status(info.get(9));
+			form.setKids(Integer.parseInt(info.get(10)));
+			form.setAdoption_history(info.get(11));
 			try {
-				medicaldao.update(form);
+				persondao.update(form);
 
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
@@ -93,8 +98,8 @@ public class MedicalServletUpdate extends HttpServlet {
 			} catch (IllegalAccessException e1) {
 				e1.printStackTrace();
 			}
-			request.setAttribute("msg", "medical Updated");
-			request.getRequestDispatcher("/jsps/medical/medical_read_output.jsp").forward(request, response);
+			request.setAttribute("msg", "person Updated");
+			request.getRequestDispatcher("/jsps/person/person_read_output.jsp").forward(request, response);
 		}
 	}
 }

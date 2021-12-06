@@ -196,7 +196,7 @@
     <description></description>
     <display-name>personServletUpdate</display-name>
     <servlet-name>personServletUpdate</servlet-name>
-    <servlet-class>person.web.servlet.personServletUpdate</servlet-class>
+    <servlet-class>person.web.servlet.PersonServletUpdate</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>personServletUpdate</servlet-name>

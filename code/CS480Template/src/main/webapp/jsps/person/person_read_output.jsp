@@ -24,7 +24,7 @@
   <h1>Read Person Output</h1>
 <p style="color: red; font-weight: 900">${msg }</p>
 <form>
-	id    :<input type="text" name="username" value="${person.id }" disabled/>
+	id    :<input type="text" name="id" value="${person.id }" disabled/>
 	<br/>
 	first_name：<input type="text" name="first_name" value="${person.first_name }" disabled/>
 	<br/>

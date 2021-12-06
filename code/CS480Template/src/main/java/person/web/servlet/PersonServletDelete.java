@@ -1,4 +1,4 @@
-package medical.web.servlet;
+package person.web.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,21 +6,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import medical.dao.PersonDao;
-import medical.domain.Person;
+import person.dao.PersonDao;
+import person.domain.Person;
 
 
 /**
  * Servlet implementation class UserServlet
  */
 
-public class MedicalServletDelete extends HttpServlet {
+public class PersonServletDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MedicalServletDelete() {
+    public PersonServletDelete() {
         super();
     }
     
@@ -36,12 +36,12 @@ public class MedicalServletDelete extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String method = request.getParameter("method");
-		PersonDao medicalDao = new PersonDao();
-		Person medical = null;
+		PersonDao personDao = new PersonDao();
+		Person person = null;
 		if(method.equals("search"))
 		{
 			try {
-				medical = medicalDao.findByAnimalId(request.getParameter("animal_id"));
+				person = personDao.findById(request.getParameter("id"));
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (InstantiationException e1) {
@@ -50,20 +50,20 @@ public class MedicalServletDelete extends HttpServlet {
 				e1.printStackTrace();
 			}
 		
-			if(medical.getAnimal_id()!=null){
-						System.out.println(medical);
-						request.setAttribute("medical", medical);
-						request.getRequestDispatcher("/jsps/medical/medical_delete_output.jsp").forward(request, response);			
+			if(person.getId()!=null){
+						System.out.println(person);
+						request.setAttribute("person", person);
+						request.getRequestDispatcher("/jsps/person/person_delete_output.jsp").forward(request, response);			
 				}
 				else{
-				request.setAttribute("msg", "medical not found");
-				request.getRequestDispatcher("/jsps/medical/medical_read_output.jsp").forward(request, response);
+				request.setAttribute("msg", "person not found");
+				request.getRequestDispatcher("/jsps/person/person_read_output.jsp").forward(request, response);
 			}
 		}
 		else if(method.equals("delete"))
 		{	
 			try {
-				medicalDao.delete(request.getParameter("animal_id"));
+				personDao.delete(request.getParameter("id"));
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (InstantiationException e1) {
@@ -71,8 +71,8 @@ public class MedicalServletDelete extends HttpServlet {
 			} catch (IllegalAccessException e1) {
 				e1.printStackTrace();
 			}
-			request.setAttribute("msg", "medical Deleted");
-			request.getRequestDispatcher("/jsps/medical/medical_read_output.jsp").forward(request, response);
+			request.setAttribute("msg", "person Deleted");
+			request.getRequestDispatcher("/jsps/person/person_read_output.jsp").forward(request, response);
 		}
 	}
 }
