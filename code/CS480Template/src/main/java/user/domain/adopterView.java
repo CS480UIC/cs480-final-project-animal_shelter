@@ -1,4 +1,4 @@
-package animal.domain;
+package user.domain;
 
 public class adopterView {
 	private String animal_name;

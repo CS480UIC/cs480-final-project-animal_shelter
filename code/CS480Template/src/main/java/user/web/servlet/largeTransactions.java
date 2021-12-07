@@ -27,7 +27,7 @@ public class largeTransactions extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserService userservice = new UserService();
 		try {
-			request.setAttribute("UserList", userservice.findall());
+			request.setAttribute("TransactionList", userservice.findTransactions());
 		} catch (InstantiationException | IllegalAccessException
 				| ClassNotFoundException e) {
 			e.printStackTrace();

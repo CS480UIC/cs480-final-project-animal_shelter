@@ -27,14 +27,14 @@ public class adopterView extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		animalService userservice = new animalService();
 		try {
-			request.setAttribute("animalList", userservice.findAdopters());
+			request.setAttribute("List", userservice.findAdopters());
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		
-		request.getRequestDispatcher("/jsps/animal/adopterView.jsp").forward(request, response);
+		request.getRequestDispatcher("/jsps/user/adopter_view.jsp").forward(request, response);
 	}
 
 }
