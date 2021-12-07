@@ -27,7 +27,7 @@ public class animalView extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		animalService userservice = new animalService();
 		try {
-			request.setAttribute("animalList", userservice.findHealthyAnimals());
+			request.setAttribute("animalList", userservice.findAnimals());
 		} catch (InstantiationException | IllegalAccessException
 				| ClassNotFoundException e) {
 			e.printStackTrace();
