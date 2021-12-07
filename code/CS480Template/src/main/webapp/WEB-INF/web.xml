@@ -264,6 +264,17 @@
   
   <servlet>
     <description></description>
+    <display-name>largeTransactions</display-name>
+    <servlet-name>largeTransactions</servlet-name>
+    <servlet-class>user.web.servlet.largeTransactions</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>largeTransactions</servlet-name>
+    <url-pattern>/largeTransactions</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
     <display-name>adoptorView</display-name>
     <servlet-name>adoptorView</servlet-name>
     <servlet-class>animal.web.servlet.adoptorView</servlet-class>

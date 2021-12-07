@@ -1,3 +1,4 @@
+USE animal_shelter;
 CREATE VIEW animalView
 AS SELECT animal.name
 FROM animal
@@ -29,7 +30,7 @@ WHERE animal.id = shelter_animal.animal_id
 ORDER BY inYear ASC;
 
 CREATE VIEW adoptorView
-AS SELECT animal.name, person.first_name, person.last_name
+AS SELECT animal.name as animal_name, person.first_name, person.last_name
 FROM animal, person, shelter_animal
 WHERE animal.id = shelter_animal.animal_id AND person.id = shelter_animal.adopter_id;
 
