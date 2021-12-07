@@ -27,7 +27,7 @@ public class adopterView extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserService userservice = new UserService();
 		try {
-			request.setAttribute("UserList", userservice.findall());
+			request.setAttribute("List", userservice.findAdopters());
 		} catch (InstantiationException | IllegalAccessException
 				| ClassNotFoundException e) {
 			e.printStackTrace();
@@ -44,7 +44,7 @@ public class adopterView extends HttpServlet {
 		}
 		
 		
-		request.getRequestDispatcher("/jsps/user/q1_list_users.jsp").forward(request, response);
+		request.getRequestDispatcher("/jsps/user/adopter_view.jsp").forward(request, response);
 	}
 
 }
