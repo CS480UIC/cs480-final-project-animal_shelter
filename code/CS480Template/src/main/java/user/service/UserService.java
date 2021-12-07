@@ -47,4 +47,8 @@ public class UserService {
 		return userDao.findTransactions();
 		
 	}
+	public Object findAdopters() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+		// TODO Auto-generated method stub
+		return userDao.findAdopters();
+	}
 }

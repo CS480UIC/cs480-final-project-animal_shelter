@@ -11,6 +11,7 @@ import java.util.List;
 
 import user.domain.Transactions;
 import user.domain.User;
+import user.domain.adopterView;
 
 
 
@@ -125,6 +126,29 @@ public class UserDao {
 		}
 		return list;
 		
+	}
+	
+	public Object findAdopters() throws ClassNotFoundException, IllegalAccessException, ClassNotFoundException{
+		// TODO Auto-generated method stub
+		List<Object> list = new ArrayList<>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/animal_shelter", MySQL_user, MySQL_password);
+			String sql = "select * from adoptorView";
+			PreparedStatement preparestatement = connect.prepareStatement(sql); 
+			ResultSet resultSet = preparestatement.executeQuery();			
+			while(resultSet.next()){
+				adopterView user = new adopterView();
+				user.setAnimal_name(resultSet.getString("animal_name"));
+	    		user.setFirst_name(resultSet.getString("first_name"));
+	    		user.setLast_name(resultSet.getString("last_name"));
+	    		list.add(user);
+			 }
+			connect.close();
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return list;
 	}
 		
 }

@@ -277,7 +277,7 @@
     <description></description>
     <display-name>adoptorView</display-name>
     <servlet-name>adoptorView</servlet-name>
-    <servlet-class>animal.web.servlet.adoptorView</servlet-class>
+    <servlet-class>user.web.servlet.adoptorView</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>adoptorView</servlet-name>
